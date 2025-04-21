@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <style>
+        /* Default styles for larger screens */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between; /* Push logo and nav to the edges */
+            align-items: center; /* Vertically center items */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        nav ul li a:hover {
+            color: #0078d7;
+        }
+        /* Styles for screens smaller than 768px (typical for phones) */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column; /* Stack logo and nav vertically */
+                text-align: center;    /* Center items */
+            }
+            nav {
+                display: none; /* Hide the nav menu by default */
+                width: 100%;
+            }
+            nav ul {
+                flex-direction: column; /* Stack links vertically */
+                align-items: center;  /* Center links */
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .menu-button {
+                display: block; /* Show the menu button */
+                background-color: #444;
+                color: #fff;
+                padding: 10px 15px;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            .menu-button:hover {
+                background-color: #555;
+            }
+            nav.show {
+                display: block; /* Show the nav menu when the button is clicked */
+            }
+        }
+        /* Styles for screens larger than 768px (typical for tablets and desktops) */
+        @media screen and (min-width: 769px) {
+            .menu-button {
+                display: none; /* Hide the menu button on larger screens */
+            }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .item {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 30%;
+            border: 1px solid #ddd;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+        .item img {
+            max-width: 100%;
+            height: auto;
+        }
+        .item video{
+            max-width: 100%;
+            height: auto;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        form button {
+            background-color: #0078d7;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <h1>ALYUBA</h1>
+        </div>
+        <button class="menu-button">Menu</button>
+        <nav>
+            <ul>
+                <li><a class="active" href="#home">HOME</a></li>
+                <li><a href="#about-me">ABOUT</a></li>
+                <li><a href="#servises">SERVICES</a></li>
+                <li><a href="#tasks">PROJECTS</a></li>
+                <li><a href="#blogs">BLOGS</a></li>
+                <li><a href="#contact-me">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="item">
+                <h2>Welcome</h2>
+                <p>This is a responsive website, designed to fit perfectly on any device, including your Android phone.</p>
+                <img src="https://via.placeholder.com/400x200" alt="Placeholder Image">
+            </div>
+            <div class="item">
+                <h2>About Us</h2>
+                <p>We are a company dedicated to providing high-quality products and services.</p>
+                 <video width="320" height="240" controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="item">
+                <h2>Our Services</h2>
+                <ul>
+                    <li>Web Design</li>
+                    <li>Web Development</li>
+                    <li>Digital Marketing</li>
+                </ul>
+            </div>
+        </div>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Responsive Website</p>
+    </footer>
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const nav = document.querySelector('nav');
+
+        menuButton.addEventListener('click', () => {
+            nav.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
